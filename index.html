@@ -1,50 +1,55 @@
-<!DOCTYPE html>
-<html>
-
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="tpwang.github.com : tpwang.github.com">
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>tpwang.github.com</title>
-  </head>
-
-  <body>
-
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/tpwang">View on GitHub</a>
-
-          <h1 id="project_title">tpwang.github.com</h1>
-          <h2 id="project_tagline">tpwang.github.com</h2>
-
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <div>
-  fwyang like fuck himself
+---
+layout: default
+title: Fuck 福伟
+---
+   
+<div class="leo-article-list">
+  {% for post in paginator.posts %}
+    <dl>
+      <dt><a href="{{ post.url }}">{{ post.title }}</a></dt>
+      <dd>
+        <div class="leo-newsinfo">
+          <p>
+            {{ post.description }}
+          </p>
+          <p class="leo-read"><a target="_blank" href="{{post.url}}">阅读全文>></a></p>
+          <p class="leo-timer">标签：{{post.tags}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;by {{site.author.name}}  {{post.date | date:"%Y-%m-%d"}}</p>
+          <p class="leo-timer"></p>
+        </div>
+      </dd>
+    </dl>
+  {% endfor %}
 </div>
+{% if paginator.total_pages > 1 %}
+    <div class="leo-pagination">
+      <em>{{paginator.total_pages}}页</em>
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">上一页</a>
+      {% else %}
+        <span class="leo-pageprv">上一页</span>
+      {% endif %}
 
-<h1></h1>
+      {% for page in (1..paginator.total_pages) %}
+        {% if page == paginator.page %}
+          <em>{{ page }}</em>
+        {% elsif page == 1 %}
+          <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+        {% else %}
+          <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+        {% endif %}
+      {% endfor %}
 
-<table>fuck fwyang</table><p><br>fuck fwyang</p>
-      </section>
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">下一页</a>
+      {% else %}
+        <span>下一页</span>
+      {% endif %}
     </div>
+  {% endif %}
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
+  <div class="tagcloud">
 
-    
-
-  </body>
-</html>
+  {%for tag in site.tags%}
+<a href="{{site.url}}#{{tag[0]}}">{{site.tags.TAG}}</a>
+{%endfor%}
+</div>

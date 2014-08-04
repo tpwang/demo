@@ -1,6 +1,4 @@
-
-# fuck fwyang #
-<p>Use the <code>printf()</code> function.</p>
-    <div class="footer">
-      fwyang is like fuck himself
-    </div>
+##佛家修炼有三个层次，亦可作为人生的三重境界。
+* 看山是山   
+* 看山不是山   
+* 看山还是山

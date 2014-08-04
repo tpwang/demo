@@ -1,0 +1,24 @@
+name: fwyang
+email: 419143040@qq.com
+markdown: redcarpet
+pygments: false
+encoding: utf-8
+#每页文章数
+paginate: 9
+
+author:
+  name: fwyang
+  email: 419143040@qq.com
+menuitems:
+- name:     首页
+  url:      /
+  class:    leo-nav-item
+- name:     归档
+  url:      /category.html
+  class:    leo-nav-item
+- name:     爱唯侦察
+  url:      /andy.html
+  class:    leo-nav-item
+- name:     联系我
+  url:      /contant.html
+  class:    leo-nav-item last
